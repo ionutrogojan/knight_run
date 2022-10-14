@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://sprites/Knight_Run_Sprite_Sheet.png" type="Texture" id=1]
+[ext_resource path="res://scripts/obstacle_behaviour.gd" type="Script" id=2]
+[ext_resource path="res://scripts/GameManager.tres" type="Resource" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 6.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 108, 108 )
+
+[node name="obstacle_pattern_3" type="Node2D"]
+script = ExtResource( 2 )
+res = ExtResource( 3 )
+
+[node name="obstacle_0" type="Sprite" parent="."]
+position = Vector2( -216, 0 )
+scale = Vector2( 13.5, 13.5 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 80, 0, 16, 16 )
+
+[node name="Area2D" type="Area2D" parent="obstacle_0"]
+collision_layer = 2
+input_pickable = false
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacle_0/Area2D"]
+shape = SubResource( 1 )
+
+[node name="obstacle_1" type="Sprite" parent="."]
+scale = Vector2( 13.5, 13.5 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 80, 0, 16, 16 )
+
+[node name="Area2D" type="Area2D" parent="obstacle_1"]
+collision_layer = 2
+input_pickable = false
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacle_1/Area2D"]
+shape = SubResource( 1 )
+
+[node name="point_0" type="Area2D" parent="."]
+position = Vector2( 216, 0 )
+collision_layer = 4
+input_pickable = false
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="point_0"]
+shape = SubResource( 2 )

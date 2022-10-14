@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/game_manager.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+GAME_SPEED = 1000
+ROUND_SCORE = 0
+BEST_SCORE = 0
+obstacle_space = 540
