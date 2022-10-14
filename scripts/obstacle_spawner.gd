@@ -2,10 +2,6 @@ extends Node
 
 const spawningPos = Vector2(0, -324)
 
-# 1 square space = Vector2(0, 108)
-# 2 square space = Vector2(0, 324)
-# 3 square space = Vector2(0, 540)
-
 var obstacleReference_0 = preload("res://scenes/obstacle_pattern_0.tscn")
 var obstacleReference_1 = preload("res://scenes/obstacle_pattern_1.tscn")
 var obstacleReference_2 = preload("res://scenes/obstacle_pattern_2.tscn")
@@ -15,7 +11,7 @@ var obstacleReferences = [obstacleReference_0, obstacleReference_1, obstacleRefe
 func _ready():
 	spawn("spawning start")
 
-func spawn(message):
+func spawn(_message):
 	#	randomize the seed based on time
 	randomize()
 #	get a random integer to pick a pattern
@@ -27,4 +23,5 @@ func spawn(message):
 #	add to spawner
 	obstaclePattern.connect("init_spawn", self, "spawn")
 	add_child(obstaclePattern)
-	print_debug(message)
+#	print_debug(message)
+

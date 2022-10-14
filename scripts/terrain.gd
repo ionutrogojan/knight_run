@@ -18,6 +18,11 @@ func _ready():
 func _process(delta):
 	for tile in terrains:
 #		add speed over time to move down
-		tile.position.y += res.GAME_SPEED * delta
+		var speed: int
+		if res.GAME_SPEED > 0:
+			speed = res.GAME_SPEED + (res.ROUND_SCORE * 2)
+		else:
+			speed = 0
+		tile.position.y += round(speed * delta)
 		if tile.position.y <= endPosY : continue
 		tile.position.y -= 3888

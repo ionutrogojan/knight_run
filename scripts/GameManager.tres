@@ -4,7 +4,8 @@
 
 [resource]
 script = ExtResource( 1 )
-GAME_SPEED = 1000
+GAME_SPEED = 1500
 ROUND_SCORE = 0
 BEST_SCORE = 0
 obstacle_space = 540
+WAIT_FOR = 1

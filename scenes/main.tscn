@@ -1,15 +1,20 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://sprites/Knight_Run_Sprite_Sheet.png" type="Texture" id=1]
 [ext_resource path="res://scripts/terrain.gd" type="Script" id=2]
 [ext_resource path="res://scripts/player.gd" type="Script" id=3]
 [ext_resource path="res://scripts/obstacle_spawner.gd" type="Script" id=4]
 [ext_resource path="res://scripts/GameManager.tres" type="Resource" id=5]
+[ext_resource path="res://fonts/Score.fnt" type="BitmapFont" id=6]
+[ext_resource path="res://scripts/main.gd" type="Script" id=7]
+[ext_resource path="res://fonts/BestScore.fnt" type="BitmapFont" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 80.0
 
 [node name="main_scene" type="Node"]
+script = ExtResource( 7 )
+res = ExtResource( 5 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 0, 960 )
@@ -50,7 +55,8 @@ region_rect = Rect2( 0, 0, 80, 96 )
 position = Vector2( 0, 1290 )
 script = ExtResource( 3 )
 res = ExtResource( 5 )
-labelReference = NodePath("../Score")
+score_ref_round = NodePath("../Score")
+score_ref_best = NodePath("../Best")
 
 [node name="Sprite" type="Sprite" parent="player"]
 position = Vector2( 0, 6 )
@@ -71,13 +77,29 @@ shape = SubResource( 1 )
 script = ExtResource( 4 )
 
 [node name="Score" type="Label" parent="."]
-margin_left = -48.0
-margin_top = 40.0
-margin_right = -38.0
-margin_bottom = 54.0
+margin_left = -243.0
+margin_top = 54.0
+margin_right = -215.0
+margin_bottom = 70.0
 rect_min_size = Vector2( 10, 14 )
-rect_scale = Vector2( 10, 10 )
+rect_scale = Vector2( 6.5, 6.5 )
+rect_pivot_offset = Vector2( 10, 0 )
 size_flags_horizontal = 3
-text = "0"
+custom_fonts/font = ExtResource( 6 )
+text = "00"
+align = 1
+uppercase = true
+
+[node name="Best" type="Label" parent="."]
+margin_left = 184.0
+margin_top = 54.0
+margin_right = 212.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 10, 14 )
+rect_scale = Vector2( 6.5, 6.5 )
+rect_pivot_offset = Vector2( 10, 0 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 8 )
+text = "00"
 align = 1
 uppercase = true
